@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu6e8qgsxsmwc"]
+
+[ext_resource type="Script" uid="uid://pqp3df1lut5u" path="res://scripts/special_brick.gd" id="1_lb1j8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax5sn"]
+size = Vector2(13, 6)
+
+[node name="SpeialBrick" type="Area2D"]
+script = ExtResource("1_lb1j8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 7)
+shape = SubResource("RectangleShape2D_ax5sn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

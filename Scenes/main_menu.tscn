@@ -1,0 +1,180 @@
+[gd_scene load_steps=6 format=3 uid="uid://cnu472e0vjw0v"]
+
+[ext_resource type="Script" uid="uid://bxnir5lpbx0o6" path="res://scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="FontFile" uid="uid://wjo7m0jbnk46" path="res://Assets/brackeys_platformer_assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_48xlc"]
+[ext_resource type="FontFile" uid="uid://ci4jiut4vg0i4" path="res://Assets/brackeys_platformer_assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_1ehe0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_erv1k"]
+font_size = 150
+font_color = Color(0.099502616, 0.4671737, 0.99999994, 1)
+outline_size = 40
+outline_color = Color(0, 0.2587991, 0.47562635, 1)
+shadow_size = 60
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(-6, 1)
+
+[sub_resource type="Theme" id="Theme_48xlc"]
+
+[node name="MainMenu" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_1ehe0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_right = 1919.0
+offset_bottom = 1077.0
+mouse_filter = 2
+color = Color(0.11384869, 0.6313833, 0.86501795, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_right = 1920.0
+offset_bottom = 500.0
+theme_override_fonts/font = ExtResource("1_48xlc")
+theme_override_font_sizes/font_size = 16
+text = "FEISTY KNIGHT"
+label_settings = SubResource("LabelSettings_erv1k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainContainer" type="CenterContainer" parent="."]
+offset_top = 400.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme = SubResource("Theme_48xlc")
+
+[node name="MainButtons" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="MainContainer/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 75
+text = "Play"
+
+[node name="Settings" type="Button" parent="MainContainer/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 75
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MainContainer/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 75
+text = "Credits
+"
+
+[node name="Quit" type="Button" parent="MainContainer/MainButtons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 75
+text = "Quit
+"
+
+[node name="SettingsMenu" type="VBoxContainer" parent="MainContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Back" type="Button" parent="MainContainer/SettingsMenu"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 75
+text = "back
+"
+
+[node name="Fullscreen" type="CheckBox" parent="MainContainer/SettingsMenu"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 75
+text = "Fullscreen"
+
+[node name="mainVolSlider" type="HSlider" parent="MainContainer/SettingsMenu"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="MainContainer/SettingsMenu/mainVolSlider"]
+layout_mode = 0
+offset_right = 647.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 40
+text = "Main"
+horizontal_alignment = 1
+
+[node name="SFXVolSlider" type="HSlider" parent="MainContainer/SettingsMenu"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="MainContainer/SettingsMenu/SFXVolSlider"]
+layout_mode = 0
+offset_right = 647.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 40
+text = "SFX"
+horizontal_alignment = 1
+
+[node name="MusicVolSlider" type="HSlider" parent="MainContainer/SettingsMenu"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.001
+
+[node name="Label" type="Label" parent="MainContainer/SettingsMenu/MusicVolSlider"]
+layout_mode = 0
+offset_right = 647.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 40
+text = "Music"
+horizontal_alignment = 1
+
+[node name="CreditsMenu" type="VBoxContainer" parent="MainContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Label" type="Label" parent="MainContainer/CreditsMenu"]
+custom_minimum_size = Vector2(1920, 0)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_48xlc")
+theme_override_font_sizes/font_size = 75
+text = "A Game by Yatharth Chawhan"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Back" type="Button" parent="MainContainer/CreditsMenu"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1ehe0")
+theme_override_font_sizes/font_size = 75
+text = "back
+"
+
+[connection signal="pressed" from="MainContainer/MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainContainer/MainButtons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainContainer/MainButtons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainContainer/MainButtons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MainContainer/SettingsMenu/Back" to="." method="_on_back_pressed"]
+[connection signal="toggled" from="MainContainer/SettingsMenu/Fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="value_changed" from="MainContainer/SettingsMenu/mainVolSlider" to="." method="_on_main_vol_slider_value_changed"]
+[connection signal="value_changed" from="MainContainer/SettingsMenu/SFXVolSlider" to="." method="_on_sfx_vol_slider_value_changed"]
+[connection signal="value_changed" from="MainContainer/SettingsMenu/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="pressed" from="MainContainer/CreditsMenu/Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://chvnxq84tkckm"]
+
+[ext_resource type="Texture2D" uid="uid://cxuknesonmo8l" path="res://Assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/door.png" id="1_gvu5a"]
+[ext_resource type="Script" uid="uid://jn62e3farvqm" path="res://scripts/winning_door.gd" id="1_qtjhp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qtjhp"]
+size = Vector2(14, 21)
+
+[node name="WinningDoor" type="Area2D"]
+script = ExtResource("1_qtjhp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_gvu5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -10.5)
+shape = SubResource("RectangleShape2D_qtjhp")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

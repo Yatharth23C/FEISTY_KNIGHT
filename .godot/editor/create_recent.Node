@@ -1,0 +1,14 @@
+ColorRect
+AnimationPlayer
+Label
+CollisionShape2D
+Area2D
+AnimatedSprite2D
+AnimatableBody2D
+Sprite2D
+StaticBody2D
+Node2D
+TileMap
+CanvasLayer
+Button
+HSlider

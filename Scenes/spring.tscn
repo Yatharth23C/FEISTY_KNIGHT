@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://btxf0fdt1q5xc"]
+
+[ext_resource type="Texture2D" uid="uid://wb7dti1qrif6" path="res://Assets/brackeys_platformer_assets/brackeys_platformer_assets/sprites/MechSpring.png" id="1_nv7ci"]
+[ext_resource type="Script" uid="uid://el4p22tku3vq" path="res://scripts/spring.gd" id="1_ynq0b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynq0b"]
+atlas = ExtResource("1_nv7ci")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w5vy"]
+atlas = ExtResource("1_nv7ci")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tg8b"]
+atlas = ExtResource("1_nv7ci")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77tl1"]
+atlas = ExtResource("1_nv7ci")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42hq0"]
+atlas = ExtResource("1_nv7ci")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nv7ci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynq0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w5vy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tg8b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77tl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42hq0")
+}],
+"loop": false,
+"name": &"ThrustUP",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nv7ci"]
+size = Vector2(5, 2)
+
+[node name="Spring" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ynq0b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nv7ci")
+animation = &"ThrustUP"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -3)
+shape = SubResource("RectangleShape2D_nv7ci")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

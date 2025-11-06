@@ -1,0 +1,94 @@
+[gd_scene load_steps=13 format=3 uid="uid://3mgbm6ehoscn"]
+
+[ext_resource type="Script" uid="uid://b75p4566mfokn" path="res://scripts/sword.gd" id="1_6wdhb"]
+[ext_resource type="Texture2D" uid="uid://c0wmrtpsr4mk1" path="res://Assets/32 Free Weapon Icons/32 Free Weapon Icons/Icons/MySword.png" id="1_goa0h"]
+[ext_resource type="Texture2D" uid="uid://bkggt3ux5mgjs" path="res://Assets/32 Free Weapon Icons/32 Free Weapon Icons/Icons/MySwordFlipped.png" id="3_d6wag"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6wdhb"]
+load_path = "res://.godot/imported/MySword.png-a3d2e03ae1ec1c3520ce6663f752e6ba.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goa0h"]
+atlas = SubResource("CompressedTexture2D_6wdhb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uo8h"]
+atlas = ExtResource("3_d6wag")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d6wag"]
+atlas = ExtResource("1_goa0h")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb2vl"]
+atlas = ExtResource("1_goa0h")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6j4cb"]
+atlas = ExtResource("3_d6wag")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksptp"]
+atlas = ExtResource("3_d6wag")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kb2vl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goa0h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uo8h")
+}],
+"loop": true,
+"name": &"default_flip",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d6wag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb2vl")
+}],
+"loop": false,
+"name": &"strike",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6j4cb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksptp")
+}],
+"loop": false,
+"name": &"strikeflip",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6wdhb"]
+size = Vector2(164.10681, 58.185677)
+
+[node name="Sword" type="Area2D"]
+z_index = -1
+scale = Vector2(0.8, 0.8)
+collision_mask = 4
+script = ExtResource("1_6wdhb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kb2vl")
+offset = Vector2(10.655, -10.785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.7499992, -11.364177)
+scale = Vector2(0.31381997, 0.43432757)
+shape = SubResource("RectangleShape2D_6wdhb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
