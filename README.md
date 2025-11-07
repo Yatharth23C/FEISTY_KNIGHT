@@ -1,5 +1,7 @@
-# FEISTY_KNIGHT
+# FEISTY\_KNIGHT
+
 My first Demo game made in Godot
 
-#Playing
-You can find and download the .exe file in the root branch
+\#Playing
+You can find and download the zip file in the root branch
+
